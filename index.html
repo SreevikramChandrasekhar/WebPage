@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Loan Defaulting Prediction Model</title>
+
+</head>
+
+<body>
+
+   <h1> Loan Default Prediction Model</h1> 
+   <h4>  This is a Loan Default Prediction Machine Learning Model. Please enter the parameters below 
+         to view predcition.
+   </h4>
+
+   <div class="container">
+
+    <img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*UC0sy0bENl-DLPy3jmXNag.jpeg" style = "float: right" height = "700" width = "700">  
+    <form action="" method = "post">
+      
+      <div> 
+      <label for="acct">Account Number</label>
+      <input type="text" id="acct" name="Account Number" placeholder="Enter Account Number" pattern = "[a-zA-Z0-9]+"required>
+      </div>
+
+      <div> 
+      <label for="moody">Moody</label>
+      <input type="number" id="moody" name="Moody" placeholder="Enter Number">
+      </div>
+
+      <div>
+      <label for="vv">Vehicle Value</label>
+      <input type="number" id="vv" name="Vehicle Value" placeholder="Enter Vehicle Value">
+      </div>
+
+      <div>
+      <label for="famt">Financed Amount</label>
+      <input type="number" id="famt" name="Financed Amount " placeholder="Enter Financed Amount">
+      </div>
+
+      <div>
+      <label for="pamt">Payment Amount</label>
+      <input type="number" id="pamt" name="Payment Amount" placeholder="Enter Payment Amount">
+      </div>
+
+      <div>
+      <label for="damt">Down Payment</label>
+      <input type="number" id="damt" name="Down Payment" placeholder="Enter Down Payment">
+      </div>
+
+      <div>
+      <label for="cha">Charge</label>
+      <input type="number" id="cha" name="Charge" placeholder="Enter Charge">
+      </div> 
+
+      <div>
+      <label for="fscore">FICO Score</label>
+      <input type="number" id="fscore" name="FICO Score" placeholder="Enter FICO Score">
+      </div>
+      <input type="submit" value="Submit">
+  
+    </form>
+  </div>
+
+
+  <script>
+
+   const formEl = document.querySelector('.form');
+
+   formEl.addEventListener('submit', event => {
+
+    event.preventDefault();
+
+    const formData = new FormData(formEl);
+    const data = Object.fromEntries(formData);
+
+    fetch('', {
+
+    method : 'POST',
+    headers: {
+
+      'Content-Type' : 'application/json'
+    },
+
+    body: JSON.stringify(data)
+
+    })
+    .then(Response => Response.json())
+    .then(Response => console.log(JSON.stringify(Response)))
+   });
+  </script>
+
+
+    <h2> Prediction is</h2>
+    <h3>              </h3>
+</body>
+
+</html>
